@@ -50,7 +50,6 @@ angular.module('myApp')
             background: '#fec73f',
             borderLeft: '3px solid #fff'
         });
-        console.log(this.sidebar);
     };
     vm.level2=function (y,index) {
         let lv1=$('.lv1');

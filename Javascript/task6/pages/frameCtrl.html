@@ -23,10 +23,13 @@
         <div id="menu" class="contentLeft collapse">
             <ul class="highLight">
                 <li ng-repeat="x in frame.sidebar">
-                    <a class="lv1"  ng-click="frame.level1($index)" ng-class="{current:frame.first==$index&&frame.second==y.title}">
+                    <a class="lv1"
+                       ng-click="frame.level1($index)"
+                       ng-class="{current:frame.first==$index&&frame.second==y.title}">
                         <span class="glyphicon glyphicon-pencil"></span>
                         {{x.firstLevel}}
-                        <span class="glyphicon pull-right" ng-class="frame.first==x.firstLevel?'glyphicon-chevron-down':'glyphicon-chevron-left'"></span>
+                        <span class="glyphicon pull-right"
+                              ng-class="frame.first==x.firstLevel?'glyphicon-chevron-down':'glyphicon-chevron-left'"></span>
                     </a>
                     <ul ng-show="frame.first==$index">
                         <li class="innerList"
