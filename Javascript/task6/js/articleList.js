@@ -21,6 +21,7 @@ angular.module('myApp')
         vm.size= response.data.data.size;
         vm.total = response.data.data.total;
     });
+    //git不能提交？
     vm.currentPage=$stateParams.page;
     //日历样式
     vm.format = "yyyy-MM-dd";
