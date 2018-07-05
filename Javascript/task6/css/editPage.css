@@ -1,0 +1,22 @@
+/*新增/编辑页面*/
+.addArticle {
+    background: #fdfdfd;
+    border: 1px solid #c2c2c2;
+}
+.addArticle .row {
+    margin: .2rem 0;
+}
+.addArticle .title {
+    background: #f3f3f4;
+    padding: .15rem;
+    margin: 0;
+}
+.addArticle .row > span ,
+.addArticle .row > input ,
+.addArticle .row > select {
+    line-height: 40px;
+    height: .4rem;
+}
+.newThree {
+    padding: 0 .15rem;
+}

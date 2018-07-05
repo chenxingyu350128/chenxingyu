@@ -1,0 +1,38 @@
+<div  class="outsideForm">
+    <form name="form" class="form">
+        <div class="logo">
+            <img src="img/login-logo.png" alt="">
+        </div>
+        <div class="inputBox form-group">
+            <input id="name"
+                   class="form-control"
+                   name="uname"
+                   placeholder="账号"
+                   ng-minlength="3"
+                   ng-maxlength="8"
+                   ng-model="login.username"
+                   type="text"
+                   required>
+            <label id="up" for="name" >
+                <img src="img/user.png" alt="">
+
+            </label>
+            <input id="pwd"
+                   name="pwd"
+                   class="form-control"
+                   placeholder="密码"
+                   ng-minlength="6"
+                   ng-maxlength="20"
+                   ng-model="login.password"
+                   type="password"
+                   required>
+            <label id="down" for="pwd" >
+                <img src="img/pwd.png" alt="">
+            </label>
+        </div>
+        <div id="loginMsg"   ng-model="login.loginMsg" >
+            {{login.loginMsg}}
+        </div>
+        <button class="loginBtn" id="btn"  type="submit" ng-click="login.login()">登陆</button>
+    </form>
+</div>

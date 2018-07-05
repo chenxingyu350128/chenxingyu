@@ -1,0 +1,135 @@
+<div class="companySearch">
+    <div class="row">
+        <div class="form-group col-md-4 col-sm-12 col-xs-12">
+            <div class="row">
+                <span class="col-md-4">发布时间</span>
+                <input type="text"
+                       class="form-control col-md-8"
+                       uib-datepicker-popup="yyyy-MM-dd"
+                       ng-model="article.startAt"
+                       is-open="article.popup.opened"
+                       datepicker-options={showWeeks:false,maxDate:article.endAt}
+                       ng-required="true"
+                       close-text="关闭"
+                       clear-text="清空"
+                       current-text="今天"
+                       alt-input-formats="altInputFormats"
+                       ng-click="article.open()"/>
+            </div>
+        </div>
+        <div class="form-group col-md-4 col-sm-12 col-xs-12">
+            <div class="row">
+                <span class="col-md-4">—</span>
+                <input type="text"
+                       class="form-control col-md-8"
+                       uib-datepicker-popup="yyyy-MM-dd"
+                       ng-model="article.endAt"
+                       is-open="article.popup1.opened"
+                       datepicker-options={showWeeks:false,minDate:article.startAt}
+                       ng-required="true"
+                       ng-click="article.open1()"
+                       close-text="关闭"
+                       clear-text="清空"
+                       current-text="今天"
+                       alt-input-formats="altInputFormats" />
+            </div>
+        </div>
+        <div class="form-group col-md-4 col-sm-12 col-xs-12">
+            <div class="row">
+                <span class="col-md-4">类&emsp;&emsp;型</span>
+                <select ng-model="article.type"
+                        class="form-control col-md-8">
+                    <option ng-repeat="x in article.Types" value="{{x.type}}">{{x.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-4 col-sm-12 col-xs-12">
+            <div class="row">
+                <span class="col-md-4">状&emsp;&emsp;态</span>
+                <select ng-model="article.status"
+                        class="form-control col-md-8">
+                    <option ng-repeat="x in article.Statuses" value="{{x.status}}">{{x.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row bottomRow">
+        <div class="col-md-4">
+            <a class="pull-right btn btn-success" ng-click="article.search()">搜索</a>
+            <a class="pull-right btn btn-danger" ng-click="article.clear()">清空</a>
+        </div>
+    </div>
+    <div>{{article.dat|date:"yyyy-MM-dd HH:mm:ss"}}</div>
+    <div>{{article.dat1|date:"yyyy-MM-dd HH:mm:ss"}}</div>
+</div>
+<div class="companyList ">
+    <div class="listHeader">
+        <span> Article管理</span>
+        <button ng-click="article.addList()"
+                    class="pull-right btn-sm btn-success">
+                新增+
+        </button>
+    </div>
+    <div class="tableSurface">
+        <table class="companyDetail text-center table-striped">
+            <tr>
+                <th colspan="2" class="btn-lg">ID</th>
+                <th colspan="3" class="btn-lg">名称</th>
+                <th colspan="3" class="btn-lg">类型</th>
+                <th colspan="3" class="btn-lg">发布时间</th>
+                <th colspan="3" class="btn-lg">修改时间</th>
+                <th colspan="3" class="btn-lg">发布者</th>
+                <th colspan="2" class="btn-lg">状态</th>
+                <th colspan="3" class="btn-lg">操作</th>
+            </tr>
+            <tr ng-repeat="x in article.articleList">
+                <td colspan="2" class="btn-lg">{{$index+1}}</td>
+                <td colspan="3" class="btn-lg">{{x.title}}</td>
+                <td colspan="3" class="btn-lg">{{x.type|typeFilter}}</td>
+                <td colspan="3" class="btn-lg">{{x.createAt|date:"yyyy-MM-dd HH:mm:ss"}}</td>
+                <td colspan="3" class="btn-lg">{{x.updateAt|date:"yyyy-MM-dd HH:mm:ss"}}</td>
+                <td colspan="3" class="btn-lg">{{x.author}}</td>
+                <td colspan="2" class="btn-lg">{{x.status|statusFilter}}</td>
+                <td colspan="3" class="btn-lg">
+                    <div class="threeBtn">
+                        <a class="changeStatus" ng-click="article.changeStatus(x.id,x.status)">{{x.status|upOrDown}}</a>
+                        <a ng-click="article.editArticle(x.id)">编辑</a>
+                        <a ng-click="article.delete(x.id)">删除</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="pageModel">
+    <div class="bottomInput">
+       去第
+        <input type="text"
+               ng-model="article.setPage"
+               ng-change="article.changePage()">
+        页
+        <button class="btn btn-default" style="color: #3379b6;" ng-click="article.getNewPage()">确定</button>
+    </div>
+    <ul uib-pagination
+        total-items="article.total"
+        ng-click="article.pageChange()"
+        ng-model="article.currentPage"
+        max-size="5"
+        first-text="首页"
+        previous-text="上一页"
+        next-text="下一页"
+        last-text="末页"
+        boundary-links="true"
+        boundary-link-numbers="true">
+    </ul>
+    <div class="bottomInput">
+        单页显示
+        <input type="text"
+               class="text-center"
+               ng-change="article.changeSize()"
+               ng-model="article.size">
+        条
+    </div>
+</div>

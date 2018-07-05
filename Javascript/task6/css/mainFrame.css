@@ -1,0 +1,164 @@
+/*载入主框架*/
+.mainFrame {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.header{
+    width: 100%;
+    height: .5rem;
+    line-height: .5rem;
+    font-size: 14px;
+    font-weight: 500;
+}
+.header .pull-left {
+    width: 250px;
+    background: #f8a74c;
+    font-weight: 900;
+    color: #fff;
+}
+.header .navbar-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    width: 40px;
+    height: 30px;
+    background: #ffe0a2;
+}
+.icon-bar {
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: #fff;
+}
+.header .pull-right {
+    width: calc(100% - 250px);
+    color: #337ab7;
+    background: #fff;
+}
+.header a {
+    display: inline-block;
+    padding: 0 .25rem;
+    line-height: .5rem;
+    color: #337ab7;
+    text-decoration: none;
+}
+.header a:hover {
+    background: #f4f4f4;
+}
+.header .glyphicon-off:before {
+    vertical-align: text-bottom;
+    color: #f8a74c;
+}
+.content {
+    width: 100%;
+    min-height: 100vh;
+    background: url(../img/login-bg-orange.jpg) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.contentLeft {
+    float: left;
+    width: 250px;
+    border-top: 1px solid #ffd474;
+    line-height: .4rem;
+    /*min-height: 100vh;*/
+    padding-bottom: 3000px;
+    margin-bottom: -3000px;
+    font-size: 16px;
+    color: #fff;
+    /*background: #f66f6f;*/
+}
+/*.highLight {*/
+    /*background: #f8a74c;*/
+/*}*/
+.highLight a {
+    display: block;
+    padding: 0 .2rem;
+    line-height: .4rem;
+    color: #fff;
+}
+.highLight a:hover ,
+.highLight a:visited ,
+.highLight .innerList:hover {
+    text-decoration: none;
+    background: #fec73f!important;
+}
+.highLight ul li {
+    padding-left: 67px;
+}
+.highLight span {
+    line-height: .4rem;
+    font-size: 14px;
+}
+/*ng-class*/
+.current {
+    border-left: 3px solid #fff;
+    background: #fec73f;
+}
+.current:hover {
+    background: #fec73f;
+    border-left: 3px solid #fff;
+}
+.active {
+    background: #fec73f;
+}
+/*.lv1:hover {*/
+    /**/
+/*}*/
+/**/
+/*媒体查询*/
+@media only screen and (max-width:970px){
+    .header .pull-left,
+    .header .pull-right,
+    .contentLeft,
+    .contentRight {
+        width: 100%;
+    }
+    .contentLeft{
+        padding-bottom: 30px;
+        margin-bottom: 0;
+        z-index: 999;
+    }
+    .contentRight {
+        padding-bottom: 30px;
+        color: #3b3b3b;
+        background: #f4f4f4;
+    }
+    .companySearch input,
+    .companySearch select {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 970px){
+    .header .collapse {
+        display: block!important;
+    }
+    .header .navbar-toggle {
+        display: none;
+    }
+    .contentLeft {
+        display: block;
+    }
+    .contentRight {
+        float: right;
+        width: calc(100% - 250px);
+        color: #3b3b3b;
+        background: #f4f4f4;
+        padding: 30px 30px 3000px 30px;
+        margin-bottom: -3000px;
+    }
+    .companySearch .row {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+    .companySearch > .row > .col-xs-12 {
+        display: flex;
+        align-items: center;
+    }
+    .companySearch input,
+    .companySearch select {
+        flex-grow: 1;
+    }
+}

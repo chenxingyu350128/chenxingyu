@@ -1,0 +1,87 @@
+html {
+    font-size: 625%;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.background {
+    background: url(../img/login-bg-orange.jpg) no-repeat;
+    background-size: cover;
+}
+/*登陆界面*/
+.outsideForm {
+    width: 100vw;
+    height: 100vh;
+}
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    border-radius: 5px;
+    margin: 0 auto;
+    max-width: 538px;
+    height: 335px;
+    transform: translate(-50%,-50%) scale(.8);
+    background: rgba(208,212,217,.7);
+}
+.logo {
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1.2);
+    width: .7rem;
+    height: .7rem;
+    border-radius: 50%;
+}
+.inputBox {
+    width: 95%;
+    margin: 0 auto;
+}
+label {
+    position: relative;
+    margin: .1rem auto;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*padding: 0 .1rem ;*/
+    /*border-radius: 5px;*/
+    /*background: #fff;*/
+}
+label img {
+    position: absolute;
+    top: -55px;
+    left: 20px;
+    vertical-align: sub;
+    color: #f66f6f;
+    height: 26px;
+}
+.inputBox input {
+    height: .6rem;
+    padding: .15rem .15rem .15rem .5rem;
+    text-indent: 1em;
+    line-height: .6rem;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    background: #fff;
+}
+#loginMsg {
+    width: 80%;
+    margin: 0 auto;
+    color: #f55d76;
+}
+.loginBtn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 95%;
+    line-height: .6rem;
+    margin: .1rem auto;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background: #f8a74c;
+}
