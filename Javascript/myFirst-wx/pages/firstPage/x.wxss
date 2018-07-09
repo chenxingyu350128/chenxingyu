@@ -1,0 +1,17 @@
+.title{
+  display: block;
+  text-align: center;
+  line-height: 4rem
+  
+}
+.pickerView{
+    padding: 13px;
+}
+.btn{
+  width: 80%;
+  padding: .5rem;
+  margin: 3rem auto;
+  text-align: center;
+  color: #fff;
+  background: #5a5
+}

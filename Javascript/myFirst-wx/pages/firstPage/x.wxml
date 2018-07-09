@@ -1,0 +1,10 @@
+
+
+
+<text class="title">试试什么职业最适合你</text>
+<view class="pickerView" wx:for="{{userData}}" wx:for-index="index"  wx:key="key">
+  <picker bindchange="newChoice" range-key='name' value="{{IndexSelf}}" data-id="{{index}}" range="{{item.arrayObject}}">
+   <text space='emsp'>{{item.type}}: {{item.arrayObject[item.IndexSelf].name}}</text>
+  </picker> 
+</view> 
+<button class="btn" bindtap="careerSelect" type="primary">选好了，点击查看</button>

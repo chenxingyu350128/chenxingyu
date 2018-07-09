@@ -1,0 +1,63 @@
+<view class="title">最适合你的职业推荐</view>
+<view class="navbar-group">
+ <view class="navbar-cell {{currentNavbar==idx ? 'active':''}}" data-id='{{idx}}' bindtap='navbarGet' wx:key="key" wx:for="{{nameGet}}" wx:for-index="idx">
+{{item}}
+ </view>
+</view>
+<view class="detail" hidden="{{currentNavbar!==0}}">
+ <text class="row">{{opt[0]}}： {{majorData[0].threshold}}星</text>
+ <text class="row">{{opt[1]}}： {{majorData[0].difficult}}星</text>
+ <text class="row">{{opt[2]}}： {{majorData[0].cycle}}</text>
+ <text class="row">{{opt[3]}}： {{majorData[0].company}}</text>
+ <view class="row">
+   <view class="beforeBasis">{{opt[4]}}：</view> 
+   <view class="basis">{{majorData[0].basis}}</view>
+ </view>
+ <view class="row">
+   <view class="beforeSalary">{{opt[5]}}：</view>
+   <view>
+     <view wx:for="{{salaryGet[0]}}" wx:key="key" wx:for-item="salary">
+       <view class="salary"> {{salary.time}}约{{salary.salary}}K</view>
+     </view>
+   </view>
+ </view>
+ <text class="pull-right">{{majorData[0].onlineUserCount}} {{opt[6]}}</text>
+</view>
+<view class="detail" hidden="{{currentNavbar!==1}}">
+ <text class="row">{{opt[0]}}： {{majorData[1].threshold}}星</text>
+ <text class="row">{{opt[1]}}： {{majorData[1].difficult}}星</text>
+ <text class="row">{{opt[2]}}： {{majorData[1].cycle}}</text>
+ <text class="row">{{opt[3]}}： {{majorData[1].company}}</text>
+ <view class="row">
+   <view class="beforeBasis">{{opt[4]}}：</view> 
+   <view class="basis">{{majorData[1].basis}}</view>
+ </view> 
+ <view class="row">
+   <view class="beforeSalary">{{opt[5]}}：</view>
+   <view>
+     <view wx:for="{{salaryGet[1]}}" wx:key="key" wx:for-item="salary">
+       <view class="salary">{{salary.time}}约{{salary.salary}}K</view>
+     </view>
+   </view>
+ </view>
+ <text class="pull-right">{{majorData[1].onlineUserCount}} {{opt[6]}}</text>
+</view>
+<view class="detail" hidden="{{currentNavbar!==2}}">
+ <text class="row">{{opt[0]}}： {{majorData[2].threshold}}星</text>
+ <text class="row">{{opt[1]}}： {{majorData[2].difficult}}星</text>
+ <text class="row">{{opt[2]}}： {{majorData[2].cycle}}</text>
+ <text class="row">{{opt[3]}}： {{majorData[2].company}}</text>
+ <view class="row">
+   <view class="beforeBasis">{{opt[4]}}：</view>
+   <view class="basis">{{majorData[2].basis}}</view>
+ </view> 
+ <view class="row">
+   <view class="beforeSalary">{{opt[5]}}：</view>
+   <view>
+     <view wx:for="{{salaryGet[2]}}" wx:key="key" wx:for-item="salary">
+       <view class="salary"> {{salary.time}}约{{salary.salary}}K</view>
+     </view>
+   </view>
+ </view>
+ <text class="pull-right">{{majorData[2].onlineUserCount}} {{opt[6]}}</text>
+</view>
