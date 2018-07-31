@@ -34,7 +34,7 @@ app.directive('upLoad',function ($http) {
                 if(scope.fileSize < 5242880 ){
                     $http({
                         method: 'POST',
-                        url: '/carrots-admin-ajax/a/u/img/task/',
+                        url: '/carrots-ajax/a/u/img/task/',
                         data: formData,
                         dataType: 'json',
                         headers: {"Content-Type": undefined},
@@ -46,6 +46,8 @@ app.directive('upLoad',function ($http) {
                     }).then(function successCallBack(response) {
                         scope.img= response.data.data.url;
                     })
+                }else{
+                    alert('文件大小不能大于5M');
                 }
             };
             //删除上传地图片

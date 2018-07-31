@@ -20,7 +20,7 @@ angular.module('myApp')
                 if(result===true){
                     $http({
                         method: 'POST',
-                        url: '/carrots-admin-ajax/a/logout'
+                        url: '/carrots-ajax/a/logout'
                     }).then(function (res) {
                         if(res.data.code===0){
                             $state.go('loginState');

@@ -3,6 +3,7 @@ angular.module('myApp')
 .controller('addListCtrl',function ($state,$http,$stateParams,myTypes,myIndustry) {
     //载入页面时
     let vm=this;
+    console.log($stateParams);
     vm.Types = myTypes.slice(1);//取出type
     vm.Industry = myIndustry;//取出industry
     vm.id = $stateParams.id;//get out "id
@@ -10,7 +11,7 @@ angular.module('myApp')
     if(vm.id){
         $http({
             method: 'GET',
-            url: '/carrots-admin-ajax/a/article/'+vm.id,
+            url: '/carrots-ajax/a/article/'+vm.id,
             headers:{"Content-Type":"application/x-www-form-urlencoded"}
         }).then(function callBackSuccess(res) {
             if(res.data.code===0){
@@ -34,7 +35,7 @@ angular.module('myApp')
         vm.id=vm.id?vm.id:'';
         $http({
             method: vm.id?'PUT':'POST',
-            url: '/carrots-admin-ajax/a/u/article/'+vm.id,
+            url: '/carrots-ajax/a/u/article/'+vm.id,
             params: {
                 title: vm.title,
                 status: 2,
@@ -62,7 +63,7 @@ angular.module('myApp')
         vm.id=vm.id?vm.id:'';
         $http({
             method: vm.id?'PUT':'POST',
-            url: '/carrots-admin-ajax/a/u/article/'+vm.id,
+            url: '/carrots-ajax/a/u/article/'+vm.id,
             params: {
                 title: vm.title,
                 status: 1,

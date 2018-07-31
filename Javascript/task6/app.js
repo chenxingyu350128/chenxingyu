@@ -50,8 +50,9 @@ var app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','ng.uedi
             resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([
+                        'css/rightContent.css',
                         'js/articleList.js',
-                        'css/rightContent.css'
+                        'js/pagination.js'
                     ]);
                 }]
             }

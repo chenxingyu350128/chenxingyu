@@ -5,7 +5,7 @@ angular.module('myApp')
     vm.login=function () {
         $http({
             method: 'POST',
-            url: '/carrots-admin-ajax/a/login',
+            url: '/carrots-ajax/a/login',
             params: {
                 name:vm.username,
                 pwd: vm.password

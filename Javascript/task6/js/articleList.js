@@ -4,6 +4,7 @@ angular.module('myApp')
     vm.Statuses=myStatus;
     vm.Types=myTypes;
     vm.params=$stateParams;
+    console.log(vm.params);
     vm.startAt=Number(vm.params.startAt);
     vm.endAt=Number(vm.params.endAt);
     if(!!vm.endAt){
@@ -14,15 +15,15 @@ angular.module('myApp')
     //首次载入文章列表页
     $http({
         method:'GET',
-        url: '/carrots-admin-ajax/a/article/search',
+        url: '/carrots-ajax/a/article/search',
         params: $stateParams  //这个没填会导致后续的搜索无法使用
     }).then(function successCallBack(response) {
         vm.articleList = response.data.data.articleList;
         vm.size= response.data.data.size;
         vm.total = response.data.data.total;
     });
-    //git不能提交？
-    vm.currentPage=$stateParams.page;
+    vm.page=$stateParams.page;
+    // vm.pageMax=Math.round(vm.total/vm.size);
     //日历样式
     vm.format = "yyyy-MM-dd";
     vm.altInputFormats = ['yyyy/M!/d!'];
@@ -36,7 +37,7 @@ angular.module('myApp')
     };
     //清除搜索
     vm.clear=function () {
-        $state.go('frameState.articleList',
+        $state.go($state.current,
             {
                 page: 1,
                 size: vm.size,
@@ -50,7 +51,7 @@ angular.module('myApp')
     vm.search=function () {
         vm.startAt=Number(vm.startAt);//时间戳转换
         vm.endAt=Number(vm.endAt);
-        $state.go('frameState.articleList',
+        $state.go($state.current,
             {
                 startAt: vm.startAt||undefined,  //若不加undefined，日期未选时搜索将报错
                 endAt: vm.endAt+86399999||undefined,
@@ -82,11 +83,11 @@ angular.module('myApp')
                 if(result===true){
                     $http({
                         method:'DELETE',
-                        url: '/carrots-admin-ajax/a/u/article/'+id,
+                        url: '/carrots-ajax/a/u/article/'+id,
                         headers:{"Content-Type":"application/x-www-form-urlencoded"}
                     }).then(function successCallBack(res) {
                         if(res.data.code===0){
-                            $state.go('frameState.articleList',{
+                            $state.go($state.current,{
                                 size: vm.params.size,//删除后留在当前页，list条数不变
                                 page: vm.params.page
                             },{reload: true})
@@ -134,7 +135,7 @@ angular.module('myApp')
                             headers:{"Content-Type":"application/x-www-form-urlencoded"}
                         }).then(function successCallBack(res) {
                             if(res.data.code===0){
-                                $state.go('frameState.articleList',{
+                                $state.go($state.current,{
                                     // page: vm.params.page    //不知道作用，但不加不能自动刷新
                                 },{reload: true})
                             } else {
@@ -145,32 +146,5 @@ angular.module('myApp')
                 }
             });
         }
-    };
-    //click page
-    vm.pageChange=function () {
-        $state.go('frameState.articleList', {page: vm.currentPage},{reload: true});
-    };
-    //change size/page
-    vm.changePage=function(){
-        vm.setPage=vm.setPage.replace(/[^0-9]/g, '');
-        if(parseInt(vm.setPage)===0){
-            vm.setPage=1;
-        }
-    };
-    vm.changeSize=function(){
-        vm.size=vm.size.replace(/[^0-9]/g, '');
-        if(parseInt(vm.size)===0){
-            vm.size=10;
-        }
-    };
-    //certain button of page module
-    vm.getNewPage=function () {
-        vm.type=vm.listType;
-        vm.status=vm.listStatus;
-        $state.go('frameState.articleList',
-            {
-                page: vm.setPage,
-                size: vm.size,
-            },{reload: true});
     };
 });
